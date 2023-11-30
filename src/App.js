@@ -6,10 +6,12 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Offers from "./pages/Offers";
 import Page404 from "./pages/Page404";
+import Header from "./components/Header";
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/forgot-password" element={<ForgotPassowrd />}></Route>
