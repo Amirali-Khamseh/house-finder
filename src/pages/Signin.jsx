@@ -31,7 +31,7 @@ export default function Signin() {
                border-gray-300 rounded-xl transition ease-in "
               type="email"
               value={formData.email}
-              placeholder="email@domain.com"
+              placeholder="Email"
               onChange={(e) => {
                 setFormData((prev) => {
                   return {
@@ -73,7 +73,7 @@ export default function Signin() {
                 />
               )}
             </div>
-            <div className="mt-5 flex text-sm sm:text-base w-full flex-col justify-center items-center  md:justify-between md:flex-row ">
+            <div className="mt-5 flex text-sm sm:text-base w-full  justify-between  items-center  md:justify-between md:flex-row ">
               <p>
                 Need an account?{" "}
                 <Link
