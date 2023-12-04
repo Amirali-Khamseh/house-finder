@@ -21,7 +21,7 @@ export default function Header() {
           <ul className="flex space-x-10 sm-mr-2">
             <li
               className={` cursor-pointer py-3 border-b-[3px] border-b-transparent ${
-                location.pathname === "/" && "font-semibold border-b-gray-800"
+                location.pathname === "/" && "font-semibold border-b-slate-950"
               }`}
               onClick={() => {
                 navigate("/");
@@ -32,7 +32,7 @@ export default function Header() {
             <li
               className={` cursor-pointer py-3 border-b-[3px] border-b-transparent ${
                 location.pathname === "/offers" &&
-                "font-semibold  border-b-gray-800"
+                "font-semibold  border-b-slate-950"
               }`}
               onClick={() => {
                 navigate("/offers");
@@ -43,7 +43,7 @@ export default function Header() {
             <li
               className={` cursor-pointer py-3 border-b-[3px] border-b-transparent ${
                 location.pathname === "/sign-in" &&
-                "font-semibold  border-b-gray-800"
+                "font-semibold  border-b-slate-950"
               }`}
               onClick={() => {
                 navigate("/sign-in");

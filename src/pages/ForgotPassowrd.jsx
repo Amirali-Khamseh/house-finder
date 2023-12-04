@@ -4,19 +4,23 @@ import { Link } from "react-router-dom";
 import OAuth from "../components/OAuth";
 
 export default function ForgotPassowrd() {
-  const [formData, setFormData] = useState({
-    email: "",
-  });
-
+  const [email, setEmail] = useState("");
   return (
     <section>
-      <h1 className="text-3xl text-center mt-6 font-semibold"> </h1>
+      <div
+        className="my-4 before:border-t flex before:flex-1
+             after:border-t  after:flex-1 items-center"
+      >
+        <h2 className="text-center text-xl font-semibold mx-2">
+          Reset your pasword
+        </h2>
+      </div>
       <div className="flex justify-center flex-wrap items-center px-5 py-12  max-w-6xl mx-auto">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6 ">
           <img
-            src="/signin-img.png"
+            src="/forgotPassword-img.jpg"
             alt="black and white towers"
-            className="w-full rounded-xl"
+            className="w-full rounded-xl w-[505px]  h-[288px] rounded-xl object-cover"
           />
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-[2rem]">
@@ -25,15 +29,10 @@ export default function ForgotPassowrd() {
               className="w-full mb-[1rem] px-4 py-2 bg-white
                border-gray-300 rounded-xl transition ease-in "
               type="email"
-              value={formData.email}
+              value={email}
               placeholder="Email"
               onChange={(e) => {
-                setFormData((prev) => {
-                  return {
-                    ...prev,
-                    email: e.target.value,
-                  };
-                });
+                setEmail(e.target.value);
               }}
             />
 
@@ -51,9 +50,9 @@ export default function ForgotPassowrd() {
             <div>
               <button
                 type="submit"
-                className="w-full bg-green-400 px-7 py-3 text-white mt-4 rounded-xl hover:bg-green-500 hover:scale-90 hover:transition-all ease-in-out duration-150"
+                className="w-full bg-purple-700 px-7 py-3 text-white mt-4 rounded-xl hover:bg-purple-400 hover:scale-90 hover:transition-all ease-in-out duration-150"
               >
-                Sign-in
+                Reset my password
               </button>
               <div
                 className="my-4 before:border-t flex before:flex-1
