@@ -7,6 +7,8 @@ import Profile from "./pages/Profile";
 import Offers from "./pages/Offers";
 import Page404 from "./pages/Page404";
 import Header from "./components/Header";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <>
@@ -22,6 +24,18 @@ function App() {
           <Route path="/*" element={<Page404 />}></Route>
         </Routes>
       </BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }
