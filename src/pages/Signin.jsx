@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
-
+import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
+import { toast } from "react-toastify";
 export default function Signin() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <section>
       <div
@@ -29,7 +30,24 @@ export default function Signin() {
           />
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-[2rem]">
-          <form>
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              try {
+                const auth = getAuth();
+                const userCredentials = await signInWithEmailAndPassword(
+                  auth,
+                  formData.email,
+                  formData.password
+                );
+                if (userCredentials.user) {
+                  navigate("/");
+                }
+              } catch (e) {
+                toast.error("User credentials are incoreect");
+              }
+            }}
+          >
             <input
               className="w-full mb-[1rem] px-4 py-2 bg-white
                border-gray-300 rounded-xl transition ease-in "

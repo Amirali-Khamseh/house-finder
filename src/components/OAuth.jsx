@@ -13,9 +13,8 @@ function OAuth() {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-
-      // check for the user
-
+      console.log(user);
+      // check the db to see if this account has been registered or not and if not add a document with the new data
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
       if (!docSnap.exists()) {
