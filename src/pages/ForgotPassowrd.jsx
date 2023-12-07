@@ -20,17 +20,17 @@ export default function ForgotPassowrd() {
           <img
             src="/forgotPassword-img.jpg"
             alt="black and white towers"
-            className="w-full rounded-xl w-[505px]  h-[288px] rounded-xl object-cover"
+            className=" w-[505px]  h-[288px] rounded-xl object-cover"
           />
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-[2rem]">
           <form
             onSubmit={async (e) => {
-              e.preventDefault();
-              const auth = getAuth();
-              await sendPasswordResetEmail(auth, email);
-              toast.success("Reset e-mail has been sent");
               try {
+                e.preventDefault();
+                const auth = getAuth();
+                await sendPasswordResetEmail(auth, email);
+                toast.success("Reset e-mail has been sent");
               } catch (e) {
                 toast.error("Something went wrong while reseting password");
               }
@@ -38,7 +38,7 @@ export default function ForgotPassowrd() {
           >
             <input
               className="w-full mb-[1rem] px-4 py-2 bg-white
-               border-gray-300 rounded-xl transition ease-in "
+               border-gray-300 rounded-xl transition ease-in-out "
               type="email"
               value={email}
               placeholder="Email"
