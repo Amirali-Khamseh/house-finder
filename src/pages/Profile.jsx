@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { getAuth } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 export default function Profile() {
   const auth = getAuth();
@@ -11,6 +14,26 @@ export default function Profile() {
     email: auth.currentUser.email,
   });
 
+  const [editMode, setEditMode] = useState(false);
+  const formSubmit = async () => {
+    try {
+      //updating the auth
+
+      await updateProfile(auth.currentUser, {
+        displayName: formData.name,
+        email: formData.email,
+      });
+      //updating the fire store
+      const docRef = doc(db, "users", auth.currentUser.uid);
+      await updateDoc(docRef, {
+        name: formData.name,
+        email: formData.email,
+      });
+      toast.success("Profile data has been updated");
+    } catch (e) {
+      toast.error("Something went wrong while updating data");
+    }
+  };
   return (
     <>
       <section className="max-w-6xl mx-auto  ">
@@ -26,26 +49,57 @@ export default function Profile() {
               type="text"
               value={formData.name}
               name="name"
-              disabled
-              className="w-full px-4 py-2 bg-white border border-gray-700 rounded-xl transition-all ease-in-out"
+              disabled={!editMode}
+              className={`w-full px-4 py-2 bg-white border rounded-xl transition-all ease-in-out ${
+                editMode && "focus:bg-gray-700 focus:text-white"
+              }`}
+              onChange={(e) => {
+                setFormData((prev) => {
+                  return {
+                    ...prev,
+                    name: e.target.value,
+                  };
+                });
+              }}
             />
             <input
               type="text"
               value={formData.email}
               name="email"
-              disabled
-              className="w-full px-4 py-2 my-4 bg-white border border-gray-700 rounded-xl transition-all ease-in-out"
+              disabled={!editMode}
+              className={`w-full px-4 py-2 my-4 bg-white border rounded-xl transition-all ease-in-out ${
+                editMode && "focus:bg-gray-700 focus:text-white"
+              }`}
+              onChange={(e) => {
+                setFormData((prev) => {
+                  return {
+                    ...prev,
+                    email: e.target.value,
+                  };
+                });
+              }}
             />
             <div className="flex justify-center items-center flex-col w-full md:flex-row md:justify-between whitespace-nowrap text-sm sm:text-base">
-              <button class=" w-full  md:w-auto bg-transparent hover:bg-gray-500 text-black font-semibold hover:text-white py-2 px-4 border border-gray-700 hover:border-transparent rounded">
-                Edit
+              <button
+                type="button"
+                className={`w-full my-2 md:w-auto bg-transparent py-2 px-4 rounded ${
+                  editMode
+                    ? "bg-blue-500 text-white"
+                    : " bg-green-500 text-white"
+                }`}
+                onClick={() => {
+                  editMode && formSubmit();
+                  setEditMode((prev) => !prev);
+                }}
+              >
+                {editMode ? "Submit" : "Edit"}
               </button>
               <button
                 onClick={() => {
                   auth.signOut();
                   navigate("/");
                 }}
-                class=" w-full  md:w-auto bg-transparent hover:bg-gray-500 text-black font-semibold hover:text-white py-2 px-4 border border-gray-700 hover:border-transparent rounded"
+                className=" w-full  md:w-auto bg-pink-600 text-white font-semibold py-2 px-4  rounded"
               >
                 Sign-out
               </button>
