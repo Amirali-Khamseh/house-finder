@@ -1,9 +1,21 @@
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
-
+  const [pageState, setPageState] = useState("Sign-in");
+  const auth = getAuth();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setPageState("Profile");
+      } else {
+        setPageState("Sign-in");
+      }
+    });
+  }, [auth]);
   return (
     <div className="bg-white border-b  shadow-sm sticky top-0 z-50">
       <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
@@ -42,14 +54,15 @@ export default function Header() {
             </li>
             <li
               className={` cursor-pointer py-3 border-b-[3px] border-b-transparent ${
-                location.pathname === "/sign-in" &&
+                (location.pathname === "/sign-in" ||
+                  location.pathname === "/profile") &&
                 "font-semibold  border-b-slate-950"
               }`}
               onClick={() => {
-                navigate("/sign-in");
+                navigate("/profile");
               }}
             >
-              Sign-in
+              {pageState}
             </li>
           </ul>
         </div>
