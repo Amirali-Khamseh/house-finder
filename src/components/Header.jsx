@@ -17,7 +17,7 @@ export default function Header() {
     });
   }, [auth]);
   return (
-    <div className="bg-white border-b  shadow-sm sticky top-0 z-50">
+    <div className="bg-white border-b  shadow-sm sticky top-0 z-40">
       <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
         <div>
           <img
@@ -32,8 +32,9 @@ export default function Header() {
         <div>
           <ul className="flex space-x-10 sm-mr-2">
             <li
-              className={` cursor-pointer py-3 border-b-[3px] border-b-transparent ${
-                location.pathname === "/" && "font-semibold border-b-slate-950"
+              className={` cursor-pointer py-3   ${
+                location.pathname === "/" &&
+                "font-semibold border-b-slate-950 border-b-[3px]"
               }`}
               onClick={() => {
                 navigate("/");
@@ -42,9 +43,9 @@ export default function Header() {
               Home
             </li>
             <li
-              className={` cursor-pointer py-3 border-b-[3px] border-b-transparent ${
+              className={` cursor-pointer py-3  ${
                 location.pathname === "/offers" &&
-                "font-semibold  border-b-slate-950"
+                "font-semibold border-b-slate-950 border-b-[3px]"
               }`}
               onClick={() => {
                 navigate("/offers");
@@ -53,10 +54,10 @@ export default function Header() {
               Offers
             </li>
             <li
-              className={` cursor-pointer py-3 border-b-[3px] border-b-transparent ${
+              className={` cursor-pointer py-3  ${
                 (location.pathname === "/sign-in" ||
                   location.pathname === "/profile") &&
-                "font-semibold  border-b-slate-950"
+                "font-semibold border-b-slate-950 border-b-[3px]"
               }`}
               onClick={() => {
                 navigate("/profile");

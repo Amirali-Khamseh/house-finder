@@ -82,11 +82,12 @@ export default function Profile() {
             <div className="flex justify-center items-center flex-col w-full md:flex-row md:justify-between whitespace-nowrap text-sm sm:text-base">
               <button
                 type="button"
-                className={`w-full my-2 md:w-auto bg-transparent py-2 px-4 rounded ${
+                className={`w-full my-2 md:w-auto  py-2 px-4 rounded ${
                   editMode
                     ? "bg-blue-500 text-white"
-                    : " bg-green-500 text-white"
+                    : " bg-green-300 text-white"
                 }`}
+                // className="w-full my-2 md:w-auto py-2 px-4 rounded bg-green-400"
                 onClick={() => {
                   editMode && formSubmit();
                   setEditMode((prev) => !prev);
