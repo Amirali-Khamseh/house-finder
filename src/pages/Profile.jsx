@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { getAuth, updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import { BsHouseAdd } from "react-icons/bs";
 
 export default function Profile() {
   const auth = getAuth();
@@ -87,7 +88,6 @@ export default function Profile() {
                     ? "bg-blue-500 text-white"
                     : " bg-green-300 text-white"
                 }`}
-                // className="w-full my-2 md:w-auto py-2 px-4 rounded bg-green-400"
                 onClick={() => {
                   editMode && formSubmit();
                   setEditMode((prev) => !prev);
@@ -106,6 +106,15 @@ export default function Profile() {
               </button>
             </div>
           </form>
+          <Link to="/create-listing">
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-2 bg-purple-500 my-2 text-white py-2 px-4 rounded"
+            >
+              <BsHouseAdd className="text-xl" />
+              Publish your offer
+            </button>
+          </Link>
         </div>
       </section>
     </>
