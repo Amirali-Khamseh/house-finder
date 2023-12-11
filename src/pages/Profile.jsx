@@ -161,11 +161,9 @@ export default function Profile() {
                 Published offers
               </h2>
             </div>
-            <ul>
+            <ul className="flex flex-wrap justify-center">
               {listings.map((item) => (
-                <>
-                  <ListingItem listing={item} key={item.id} />
-                </>
+                <ListingItem listing={item} key={item.id} />
               ))}
             </ul>
           </div>

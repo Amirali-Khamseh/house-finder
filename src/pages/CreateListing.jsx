@@ -186,7 +186,7 @@ function CreateListing() {
             Rent
           </button>
         </div>
-        <p className="md:text-xl font-bold text-gray-700">Name</p>
+        <p className="md:text-xl font-bold text-gray-700">Title</p>
         <input
           type="text"
           id="name"
@@ -309,6 +309,7 @@ function CreateListing() {
           value={formData.description}
           onChange={onChange}
           min="10"
+          required
           className="block mb-2 w-[67%] text-sm font-medium  mx-auto rounded border-none"
         />
         <p className="md:text-xl font-bold text-gray-700">Offer</p>
