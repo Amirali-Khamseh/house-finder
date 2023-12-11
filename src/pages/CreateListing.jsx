@@ -134,6 +134,7 @@ function CreateListing() {
     const formDataCopy = {
       ...formData,
       imgUrls,
+      userRef: auth.currentUser.uid,
       timestamp: serverTimestamp(),
     };
     delete formDataCopy.images;
