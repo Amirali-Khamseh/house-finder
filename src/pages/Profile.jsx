@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
   collection,
+  deleteDoc,
   doc,
   getDocs,
   orderBy,
@@ -67,7 +68,18 @@ export default function Profile() {
     }
     fetchData();
   }, [auth.currentUser.uid]);
-
+  //Deleting published properties based on their id
+  async function onDelete(id) {
+    if (window.confirm("Do you want to delete this property ?")) {
+      await deleteDoc(doc(db, "listings", id));
+      const updatedList = listings.filter((item) => item.id !== id);
+      setListings(updatedList);
+      toast.success("Property has been deleted");
+    }
+  }
+  function onEdit(id) {
+    navigate(`/edit-listing/${id}`);
+  }
   return (
     <>
       <section className="max-w-6xl mx-auto  ">
@@ -163,7 +175,12 @@ export default function Profile() {
             </div>
             <ul className="flex flex-wrap justify-center">
               {listings.map((item) => (
-                <ListingItem listing={item} key={item.id} />
+                <ListingItem
+                  listing={item}
+                  key={item.id}
+                  onDelete={() => onDelete(item.id)}
+                  onEdit={() => onEdit(item.id)}
+                />
               ))}
             </ul>
           </div>

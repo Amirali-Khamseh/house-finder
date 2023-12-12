@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
+import { MdOutlineModeEditOutline } from "react-icons/md";
+import { BsTrash } from "react-icons/bs";
 
-function ListingItem({ listing }) {
+function ListingItem({ listing, onEdit, onDelete }) {
   const [address, setAddress] = useState("");
-  useEffect(() => {
-    const result = fetch(
-      `https://geocode.maps.co/reverse?lat=${listing.data.lat}&lon=${listing.data.lon}`
-    )
-      .then((res) => res.json())
-      .then((res) => setAddress(res));
-  }, []);
+  // useEffect(() => {
+  //   const result = fetch(
+  //     `https://geocode.maps.co/reverse?lat=${listing.data.lat}&lon=${listing.data.lon}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((res) => setAddress(res));
+  // }, []);
 
   return (
     <li className="w-[250px] relative bg-white flex flex-col justify-between items-center shadow-md hover:shadow-xl rounded-md overflow-hidden transition-shadow duration-150 m-[10px]">
@@ -71,6 +73,20 @@ function ListingItem({ listing }) {
           </div>
         </div>
       </Link>
+      <div className=" absolute bottom-3 right-2 flex items-center mr-4 space-x-2">
+        <MdOutlineModeEditOutline
+          className="text-blue-500 cursor-pointer h-[18px]"
+          onClick={(id) => {
+            onEdit(id);
+          }}
+        />
+        <BsTrash
+          className="text-pink-500 cursor-pointer h-[18px]"
+          onClick={(id) => {
+            onDelete(id);
+          }}
+        />
+      </div>
     </li>
   );
 }
