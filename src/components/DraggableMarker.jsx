@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 
-const DraggableMarker = ({ onMarkerDrag }) => {
-  const [position, setPosition] = useState([52.3, 13.25]);
+const DraggableMarker = ({ onMarkerDrag, lat, lon }) => {
+  const [position, setPosition] = useState([lat, lon]);
   const handleDrag = (e) => {
     const newPosition = e.target.getLatLng();
     setPosition(newPosition);

@@ -6,18 +6,9 @@ import { MdOutlineModeEditOutline } from "react-icons/md";
 import { BsTrash } from "react-icons/bs";
 
 function ListingItem({ listing, onEdit, onDelete }) {
-  const [address, setAddress] = useState("");
-  // useEffect(() => {
-  //   const result = fetch(
-  //     `https://geocode.maps.co/reverse?lat=${listing.data.lat}&lon=${listing.data.lon}`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((res) => setAddress(res));
-  // }, []);
-
   return (
     <li className="w-[250px] relative bg-white flex flex-col justify-between items-center shadow-md hover:shadow-xl rounded-md overflow-hidden transition-shadow duration-150 m-[10px]">
-      <Link to={`/category/${listing.type}/${listing.id}`}>
+      <Link to={`/category/${listing.type}/${listing.id}`} className="w-full">
         <img
           className="h-[170px] w-full object-cover hover:scale-105 transition-scale duration-200 ease-in"
           loading="lazy"
@@ -33,15 +24,17 @@ function ListingItem({ listing, onEdit, onDelete }) {
           <div className="flex items-center space-x-1">
             <MdLocationPin className="h-4 w-4 text-[#3377cc]" />
             <p className="font-semibold text-sm mb-[2px] text-gray-600 truncate">
-              {address && address.display_name.substring(0, 20)}
+              {listing.data.address &&
+                listing.data.address.substring(0, 20) + "..."}
             </p>
           </div>
           <p className="font-semibold m-0 text-xl truncate">
             {listing.data.name.substring(0, 20)}
           </p>
-          <p className="font-semibold m-0 text-basic truncate">
-            {listing.data.description &&
-              listing.data.description.substring(0, 20) + " ..."}
+          <p className=" m-0 text-basic truncate">
+            {listing.data.description.length > 20
+              ? listing.data.description.substring(0, 20) + " ..."
+              : listing.data.description}
           </p>
         </div>
 

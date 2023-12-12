@@ -10,15 +10,21 @@ import {
 } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function CreateListing() {
+function EditListing() {
   const [loading, setLoading] = useState(false);
   const auth = getAuth();
+  const params = useParams();
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     type: "sell",
     name: "",
@@ -35,6 +41,31 @@ function CreateListing() {
     lon: 0,
     address: "",
   });
+  const [listing, setListing] = useState(null);
+  //Autorizing the user for giving the dit and delete functionality
+  useEffect(() => {
+    if (listing && listing.userRef !== auth.currentUser.uid) {
+      toast.error("You can't edit this listing");
+      navigate("/");
+    }
+  }, [auth.currentUser.uid, listing, navigate]);
+  //Fetching data to show the previous values on the form fields
+  useEffect(() => {
+    setLoading(true);
+    async function fetchData() {
+      const docRef = doc(db, "listings", params.listingId);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setListing(docSnap.data());
+        setFormData({ ...docSnap.data() });
+        setLoading(false);
+      } else {
+        navigate("/");
+        toast.error("Listing does not exist");
+      }
+    }
+    fetchData();
+  }, [navigate, params.listingId]);
   //Reverse Geocoding based on the location user has specified via map interface
   useEffect(() => {
     const result = fetch(
@@ -155,10 +186,10 @@ function CreateListing() {
     };
     delete formDataCopy.images;
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
-    const docRef = await addDoc(collection(db, "listings"), formDataCopy);
+    await updateDoc(doc(db, "listings", params.listingId), formDataCopy);
     setLoading(false);
-    toast.success("Property has been published ");
-    navigate(`/category/${formDataCopy.type}/${docRef.id}`);
+    toast.success("Property has been updated ");
+    navigate(`/`);
   };
   //Spinner display function
   if (loading) {
@@ -172,7 +203,7 @@ function CreateListing() {
              after:border-t  after:flex-1 items-center"
       >
         <h2 className="text-center text-xl font-semibold mx-2">
-          Publish your offer
+          Edit your offer
         </h2>
       </div>
       <form className="text-center" onSubmit={onSubmit}>
@@ -297,8 +328,8 @@ function CreateListing() {
           <p className="md:text-xl font-bold text-gray-700">Address</p>
           <DraggableMarker
             onMarkerDrag={handleMarkerDrag}
-            lat={52.3}
-            lon={13.25}
+            lat={formData.lat}
+            lon={formData.lon}
           />
         </div>
         <div className="mx-auto  w-full  flex justify-evenly">
@@ -403,6 +434,7 @@ function CreateListing() {
             </div>
           )}
         </div>
+
         <div className="mb-2 flex flex-col justify-center items-center  md:mx-auto  w-full">
           <p className="md:text-xl font-bold text-gray-700">Upload Images</p>
           <span class=" bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 w-[67%] md:w-[50%] my-2">
@@ -416,19 +448,19 @@ function CreateListing() {
             onChange={onChange}
             accept=".jpg, .png, .jpeg"
             multiple
-            required
             className="w-[67%] border-none rounded text-center bg-white my-2 text-gray-700 font-semibold "
           />
         </div>
+
         <button
           type="submit"
           className=" w-[67%] text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
-          Publish
+          Update your offer
         </button>
       </form>
     </main>
   );
 }
 
-export default CreateListing;
+export default EditListing;
