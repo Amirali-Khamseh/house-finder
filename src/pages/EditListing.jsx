@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import DraggableMarker from "../components/DraggableMarker";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
+import { RxCross2 } from "react-icons/rx";
 import {
   getStorage,
   ref,
@@ -42,6 +43,7 @@ function EditListing() {
     address: "",
   });
   const [listing, setListing] = useState(null);
+
   //Autorizing the user for giving the dit and delete functionality
   useEffect(() => {
     if (listing && listing.userRef !== auth.currentUser.uid) {
@@ -434,7 +436,28 @@ function EditListing() {
             </div>
           )}
         </div>
-
+        <div className="w-[67%] flex flex-wrap mx-auto space-x-2 justify-center">
+          {listing &&
+            listing.imgUrls.map((item, index) => (
+              <div className="relative">
+                <img
+                  key={index}
+                  src={item}
+                  alt={`Image ${index}`}
+                  className="w-[150px] object-cover h-[100px]"
+                />
+                {/* <RxCross2
+                  className="absolute top-2 right-2 bg-white text-red-500 rounded"
+                  onClick={() => {
+                    const modifiedPhotos = [...listing.imgUrls];
+                    modifiedPhotos.splice(index, 1);
+                    setListing({ ...listing, imgUrls: modifiedPhotos });
+                    setFormData(listing);
+                  }}
+                /> */}
+              </div>
+            ))}
+        </div>
         <div className="mb-2 flex flex-col justify-center items-center  md:mx-auto  w-full">
           <p className="md:text-xl font-bold text-gray-700">Upload Images</p>
           <span class=" bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 w-[67%] md:w-[50%] my-2">
