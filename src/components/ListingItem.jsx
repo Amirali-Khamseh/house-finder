@@ -8,7 +8,10 @@ import { BsTrash } from "react-icons/bs";
 function ListingItem({ listing, onEdit, onDelete }) {
   return (
     <li className="w-[250px] relative bg-white flex flex-col justify-between items-center shadow-md hover:shadow-xl rounded-md overflow-hidden transition-shadow duration-150 m-[10px]">
-      <Link to={`/category/${listing.type}/${listing.id}`} className="w-full">
+      <Link
+        to={`/category/${listing.data.type}/${listing.id}`}
+        className="w-full"
+      >
         <img
           className="h-[170px] w-full object-cover hover:scale-105 transition-scale duration-200 ease-in"
           loading="lazy"

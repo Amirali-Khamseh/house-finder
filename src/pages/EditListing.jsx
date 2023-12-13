@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DraggableMarker from "../components/DraggableMarker";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
-import { RxCross2 } from "react-icons/rx";
+//import { RxCross2 } from "react-icons/rx";
 import {
   getStorage,
   ref,
@@ -208,6 +208,14 @@ function EditListing() {
           Edit your offer
         </h2>
       </div>
+      <div
+        className="my-4 before:border-t flex before:flex-1
+             after:border-t  after:flex-1 items-center"
+      >
+        <h2 className="text-center text-xl font-semibold mx-2">
+          Edit your offer
+        </h2>
+      </div>
       <form className="text-center" onSubmit={onSubmit}>
         <p className="md:text-xl font-bold text-gray-700">Sell or Rent</p>
         <div className="flex justify-center">
@@ -242,6 +250,7 @@ function EditListing() {
           value={formData.name}
           onChange={onChange}
           min="10"
+          required
           className="block mb-2 w-[67%] text-sm font-medium mx-auto rounded border-none"
         />
         <div className="mx-auto  w-full  flex justify-evenly">
@@ -255,7 +264,6 @@ function EditListing() {
               max="15"
               min="1"
               value={formData.bathrooms}
-              required
               onChange={onChange}
             />
           </div>
@@ -464,6 +472,9 @@ function EditListing() {
             First image will be used as a cover and maximum of 6 photos are
             allowed to upload
           </span>
+          <span class=" bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 w-[67%] md:w-[50%] my-2">
+            Please ulpoad photos/photos again
+          </span>
           <input
             type="file"
             name=""
@@ -471,6 +482,7 @@ function EditListing() {
             onChange={onChange}
             accept=".jpg, .png, .jpeg"
             multiple
+            required
             className="w-[67%] border-none rounded text-center bg-white my-2 text-gray-700 font-semibold "
           />
         </div>
