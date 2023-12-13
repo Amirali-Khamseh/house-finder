@@ -21,12 +21,12 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <section>
+    <section className="h-screen ">
       <div
         className="my-4 before:border-t flex before:flex-1
              after:border-t  after:flex-1 items-center"
       >
-        <h2 className="text-center text-xl font-semibold mx-2">
+        <h2 className="text-center text-xl font-semibold mx-2 text-white">
           Create an account
         </h2>
       </div>

@@ -3,14 +3,9 @@
 @tailwind utilities;
 
 body {
-  transition: background 0.2s ease;
-  background: hsla(120, 6%, 90%, 1);
+  background: #e4e7e4;
 
-  background: linear-gradient(
-    90deg,
-    hsla(120, 6%, 90%, 1) 0%,
-    hsla(228, 75%, 16%, 1) 100%
-  );
+  background: linear-gradient(90deg, hsla(120, 6%, 90%, 1) 0%, #0a1647 100%);
 
   background: -moz-linear-gradient(
     90deg,

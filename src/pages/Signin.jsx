@@ -12,12 +12,12 @@ export default function Signin() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   return (
-    <section>
+    <section className="h-screen">
       <div
         className="my-4 before:border-t flex before:flex-1
              after:border-t  after:flex-1 items-center"
       >
-        <h1 className="text-center text-2xl font-semibold mx-2">
+        <h1 className=" text-white text-center text-2xl font-semibold mx-2">
           Your Ultimate Real Estate Companion
         </h1>
       </div>

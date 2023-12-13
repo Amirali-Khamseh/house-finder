@@ -81,8 +81,8 @@ export default function Profile() {
     navigate(`/edit-listing/${id}`);
   }
   return (
-    <>
-      <section className="max-w-6xl mx-auto  ">
+    <div className="h-screen">
+      <section className="max-w-6xl mx-auto">
         <div
           className="my-4 before:border-t flex before:flex-1
              after:border-t  after:flex-1 items-center"
@@ -188,6 +188,6 @@ export default function Profile() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }

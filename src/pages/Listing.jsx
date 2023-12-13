@@ -20,6 +20,7 @@ import {
   FaParking,
   FaChair,
 } from "react-icons/fa";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "swiper/css/bundle";
 import { getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
@@ -155,7 +156,22 @@ export default function Listing() {
           )}
           {contactLanlord && <Contact listing={listing} />}
         </div>
-        <div className="bg-blue-300 w-full h-[200px] lg-[400px] z-10 overflow-x-hidden mt-6"></div>
+        <div className="bg-blue-300 w-full h-[200px] lg-[400px] z-10 overflow-x-hidden mt-6 rounded-xl md:my-[4rem]">
+          <MapContainer
+            center={[listing.lat, listing.lon]}
+            zoom={5}
+            scrollWheelZoom={false}
+            style={{ height: "100%", width: "100%" }}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={[listing.lat, listing.lon]}>
+              <Popup>{listing.address}</Popup>
+            </Marker>
+          </MapContainer>
+        </div>
       </div>
     </main>
   );
