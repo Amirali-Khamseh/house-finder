@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { db } from "../firebase";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { MdContentCopy } from "react-icons/md";
 import SwiperCore, {
   EffectFade,
   Autoplay,
@@ -12,11 +13,13 @@ import SwiperCore, {
   Pagination,
 } from "swiper";
 import "swiper/css/bundle";
+import { toast } from "react-toastify";
 
 export default function Listing() {
   const params = useParams();
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
+
   SwiperCore.use([Autoplay, Navigation, Pagination]);
   useEffect(() => {
     async function fetchListing() {
@@ -61,6 +64,15 @@ export default function Listing() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div
+        className="cursor-pointer  bg-white text-black w-[35px] flex justify-center items-center h-[35px] p-2 rounded-[50%] border-gray-700 border-2 absolute top-[55%] right-[20%]  md:right-[34%] z-50"
+        onClick={() => {
+          navigator.clipboard.writeText(window.location.href);
+          toast.success("Copied to clipboard");
+        }}
+      >
+        <MdContentCopy className="text-xl" />
+      </div>
     </main>
   );
 }
