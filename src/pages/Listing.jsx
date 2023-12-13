@@ -21,12 +21,16 @@ import {
   FaChair,
 } from "react-icons/fa";
 import "swiper/css/bundle";
+import { getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
+import Contact from "../components/Contact";
 
 export default function Listing() {
   const params = useParams();
+  const auth = getAuth();
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [contactLanlord, setContactLanlord] = useState(false);
 
   SwiperCore.use([Autoplay, Navigation, Pagination]);
   useEffect(() => {
@@ -49,7 +53,9 @@ export default function Listing() {
         className="my-4 before:border-t flex before:flex-1
              after:border-t  after:flex-1 items-center"
       >
-        <h2 className="text-center text-xl font-semibold mx-2">Details Page</h2>
+        <h2 className="text-center text-xl font-semibold mx-2 text-white">
+          Details Page
+        </h2>
       </div>
       <Swiper
         className="w-full rounded-xl md:w-[50%] "
@@ -73,7 +79,7 @@ export default function Listing() {
         ))}
       </Swiper>
       <div
-        className="cursor-pointer  bg-white text-black w-[35px] flex justify-center items-center h-[35px] p-2 rounded-[50%] border-gray-700 border-2 absolute top-[55%] right-[13%]  md:right-[32%] z-50"
+        className="cursor-pointer  bg-white text-black w-[35px] flex justify-center items-center h-[35px] p-2 rounded-[50%] border-gray-700 border-2 absolute top-[55%] right-[13%]  md:right-[32%] z-40"
         onClick={() => {
           navigator.clipboard.writeText(window.location.href);
           toast.success("Copied to clipboard");
@@ -88,7 +94,7 @@ export default function Listing() {
             {listing.name}
           </p>
           <div className="flex items-center">
-            <p className=" w-autobg-green-100  text-xl font-medium me-2 px-2.5 py-0.5 rounded bg-green-400 text-white border border-green-400">
+            <p className=" text-gray-700  bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2">
               {listing.offer
                 ? listing.discountedPrice
                     .toString()
@@ -137,6 +143,17 @@ export default function Listing() {
               {listing.furnished ? "Furnished" : "Not furnished"}
             </li>
           </ul>
+          {listing.userRef !== auth.currentUser?.uid && !contactLanlord && (
+            <button
+              onClick={() => {
+                setContactLanlord(true);
+              }}
+              className=" mt-4 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            >
+              Contact the property's owner
+            </button>
+          )}
+          {contactLanlord && <Contact listing={listing} />}
         </div>
         <div className="bg-blue-300 w-full h-[200px] lg-[400px] z-10 overflow-x-hidden mt-6"></div>
       </div>

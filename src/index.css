@@ -3,7 +3,28 @@
 @tailwind utilities;
 
 body {
-  background-color: #bfbfbf;
+  transition: background 0.2s ease;
+  background: hsla(120, 6%, 90%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(120, 6%, 90%, 1) 0%,
+    hsla(228, 75%, 16%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(120, 6%, 90%, 1) 0%,
+    hsla(228, 75%, 16%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(120, 6%, 90%, 1) 0%,
+    hsla(228, 75%, 16%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E4E7E4", endColorstr="#0A1647", GradientType=1 );
 }
 
 .swiper-button-next:after,

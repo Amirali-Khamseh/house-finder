@@ -87,7 +87,9 @@ export default function Profile() {
           className="my-4 before:border-t flex before:flex-1
              after:border-t  after:flex-1 items-center"
         >
-          <h2 className="text-center text-xl font-semibold mx-2">My Profile</h2>
+          <h2 className="text-center text-xl font-semibold mx-2 text-white">
+            My Profile
+          </h2>
         </div>
         <div className="w-full md:w-[50%] mt-6 px-3 mx-auto">
           <form action="">
@@ -169,7 +171,7 @@ export default function Profile() {
               className="my-4 before:border-t flex before:flex-1
              after:border-t  after:flex-1 items-center"
             >
-              <h2 className="text-center text-xl font-semibold mx-2">
+              <h2 className="text-center text-xl font-semibold mx-2 text-white">
                 Published offers
               </h2>
             </div>

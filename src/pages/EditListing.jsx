@@ -204,12 +204,14 @@ function EditListing() {
         className="my-4 before:border-t flex before:flex-1
              after:border-t  after:flex-1 items-center"
       >
-        <h2 className="text-center text-xl font-semibold mx-2">
+        <h2 className="text-center text-xl font-semibold mx-2 text-white">
           Edit your offer
         </h2>
       </div>
       <form className="text-center" onSubmit={onSubmit}>
-        <p className="md:text-xl font-bold text-gray-700">Sell or Rent</p>
+        <p className="md:text-xl font-bold text-gray-700 text-white">
+          Sell or Rent
+        </p>
         <div className="flex justify-center">
           <button
             type="button"
@@ -235,7 +237,7 @@ function EditListing() {
             Rent
           </button>
         </div>
-        <p className="md:text-xl font-bold text-gray-700">Title</p>
+        <p className="md:text-xl font-bold text-white">Title</p>
         <input
           type="text"
           id="name"
@@ -247,7 +249,7 @@ function EditListing() {
         />
         <div className="mx-auto  w-full  flex justify-evenly">
           <div>
-            <p>Bathroom</p>
+            <p className="text-white">Bathroom</p>
             <input
               className="w-[4rem] border-none rounded text-center"
               type="number"
@@ -260,7 +262,7 @@ function EditListing() {
             />
           </div>
           <div className=" ">
-            <p>Bedroom</p>
+            <p className="text-white">Bedroom</p>
             <input
               className="w-[4rem] border-none rounded text-center"
               type="number"
@@ -274,7 +276,7 @@ function EditListing() {
             />
           </div>
         </div>
-        <p className="md:text-xl font-bold text-gray-700">Parking included</p>
+        <p className="md:text-xl font-bold text-white">Parking included</p>
         <div className="flex justify-center">
           <button
             id="parking"
@@ -300,7 +302,7 @@ function EditListing() {
             No
           </button>
         </div>
-        <p className="md:text-xl font-bold text-gray-700">Furnished </p>
+        <p className="md:text-xl font-bold text-white">Furnished </p>
         <div className="flex justify-center">
           <button
             id="furnished"
@@ -327,7 +329,7 @@ function EditListing() {
           </button>
         </div>
         <div className="w-full">
-          <p className="md:text-xl font-bold text-gray-700">Address</p>
+          <p className="md:text-xl font-bold text-white">Address</p>
           <DraggableMarker
             onMarkerDrag={handleMarkerDrag}
             lat={formData.lat}
