@@ -12,6 +12,14 @@ import SwiperCore, {
   Navigation,
   Pagination,
 } from "swiper";
+import {
+  FaShare,
+  FaMapMarkerAlt,
+  FaBed,
+  FaBath,
+  FaParking,
+  FaChair,
+} from "react-icons/fa";
 import "swiper/css/bundle";
 import { toast } from "react-toastify";
 
@@ -36,7 +44,7 @@ export default function Listing() {
     return <Spinner />;
   }
   return (
-    <main className="w-[67%] max-w-6xl mx-auto px-2 ">
+    <main className="w-[80%] max-w-6xl mx-auto px-2 ">
       <div
         className="my-4 before:border-t flex before:flex-1
              after:border-t  after:flex-1 items-center"
@@ -65,13 +73,72 @@ export default function Listing() {
         ))}
       </Swiper>
       <div
-        className="cursor-pointer  bg-white text-black w-[35px] flex justify-center items-center h-[35px] p-2 rounded-[50%] border-gray-700 border-2 absolute top-[55%] right-[20%]  md:right-[34%] z-50"
+        className="cursor-pointer  bg-white text-black w-[35px] flex justify-center items-center h-[35px] p-2 rounded-[50%] border-gray-700 border-2 absolute top-[55%] right-[13%]  md:right-[32%] z-50"
         onClick={() => {
           navigator.clipboard.writeText(window.location.href);
           toast.success("Copied to clipboard");
         }}
       >
         <MdContentCopy className="text-xl" />
+      </div>
+
+      <div className="m-4 flex flex-col md:flex-row max-w-6xl mx-auto p-4 rounded-lg shadow-lg bg-white lg:space-x-5 w-full">
+        <div className=" w-full lg-[400px] ">
+          <p className="text-2xl font-bold mb-3 text-blue-900">
+            {listing.name}
+          </p>
+          <div className="flex items-center">
+            <p className=" w-autobg-green-100  text-xl font-medium me-2 px-2.5 py-0.5 rounded bg-green-400 text-white border border-green-400">
+              {listing.offer
+                ? listing.discountedPrice
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                : listing.regularPrice
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              {listing.type === "rent" ? " / month" : ""}
+            </p>
+            <p className="text-xl">&euro;</p>
+          </div>
+
+          <p className="flex items-center mt-4 mb-3 font-semibold  text-sm md:text-lg">
+            <FaMapMarkerAlt className="text-green-700 mr-1" />
+            {listing.address}
+          </p>
+          <div className="flex justify-start items-center space-x-4 w-[75%]">
+            <p className="bg-red-800 w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
+              {listing.type === "rent" ? "Rent" : "Sale"}
+            </p>
+            {listing.offer && (
+              <p className="w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md">
+                ${+listing.regularPrice - +listing.discountedPrice} discount
+              </p>
+            )}
+          </div>
+          <p className="mt-3 mb-3">
+            <span className="font-semibold">Description - </span>
+            {listing.description}
+          </p>
+          <ul className="flex items-center space-x-2 sm:space-x-10 text-sm font-semibold">
+            <li className="flex items-center whitespace-nowrap">
+              <FaBed className=" text-sm md:text-lg mr-1" />
+              {+listing.bedrooms > 1 ? `${listing.bedrooms} Beds` : "1 Bed"}
+            </li>
+            <li className="flex items-center whitespace-nowrap ">
+              <FaBath className=" text-sm md:text-lg mr-1" />
+              {+listing.bathrooms > 1 ? `${listing.bathrooms} Baths` : "1 Bath"}
+            </li>
+            <li className="flex items-center whitespace-nowrap">
+              <FaParking className=" text-sm md:text-lg mr-1" />
+              {listing.parking ? "Parking" : "No parking"}
+            </li>
+            <li className="flex items-center whitespace-nowrap">
+              <FaChair className=" text-sm md:text-lg mr-1" />
+              {listing.furnished ? "Furnished" : "Not furnished"}
+            </li>
+          </ul>
+        </div>
+        <div className="bg-blue-300 w-full h-[200px] lg-[400px] z-10 overflow-x-hidden mt-6"></div>
       </div>
     </main>
   );

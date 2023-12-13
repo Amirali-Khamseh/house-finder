@@ -208,14 +208,6 @@ function EditListing() {
           Edit your offer
         </h2>
       </div>
-      <div
-        className="my-4 before:border-t flex before:flex-1
-             after:border-t  after:flex-1 items-center"
-      >
-        <h2 className="text-center text-xl font-semibold mx-2">
-          Edit your offer
-        </h2>
-      </div>
       <form className="text-center" onSubmit={onSubmit}>
         <p className="md:text-xl font-bold text-gray-700">Sell or Rent</p>
         <div className="flex justify-center">
