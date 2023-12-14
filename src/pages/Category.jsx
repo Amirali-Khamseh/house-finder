@@ -13,10 +13,12 @@ import { db } from "../firebase";
 import Spinner from "../components/Spinner";
 import ListingItem from "../components/ListingItem";
 import Headline from "../components/Headline";
+import { useParams } from "react-router-dom";
 
-export default function Offers() {
+export default function Category() {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
+  const params = useParams();
   const [lastFetchedListing, setLastFetchListing] = useState(null);
   //Getting last 8 Offers
   useEffect(() => {
@@ -25,7 +27,7 @@ export default function Offers() {
         const listingRef = collection(db, "listings");
         const q = query(
           listingRef,
-          where("offer", "==", true),
+          where("type", "==", params.categoryName),
           orderBy("timestamp", "desc"),
           limit(8)
         );
@@ -47,7 +49,7 @@ export default function Offers() {
     }
 
     fetchListings();
-  }, []);
+  }, [params.categoryName]);
 
   //Getting more offers
   async function onFetchMoreListings() {
@@ -55,7 +57,7 @@ export default function Offers() {
       const listingRef = collection(db, "listings");
       const q = query(
         listingRef,
-        where("offer", "==", true),
+        where("type", "==", params.categoryName),
         orderBy("timestamp", "desc"),
         startAfter(lastFetchedListing),
         limit(4)
@@ -78,7 +80,14 @@ export default function Offers() {
   }
   return (
     <div className="max-w-6xl mx-auto h-screen">
-      <Headline title="Discounted properties" />
+      <div
+        className="my-4 before:border-t flex before:flex-1
+     after:border-t  after:flex-1 items-center"
+      >
+        <h2 className="text-center text-xl font-semibold mx-2 text-white">
+          <span className="uppercase">{params.categoryName}</span> Proprties
+        </h2>
+      </div>
       {loading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
