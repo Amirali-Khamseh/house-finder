@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
@@ -69,20 +68,22 @@ function ListingItem({ listing, onEdit, onDelete }) {
           </div>
         </div>
       </Link>
-      <div className=" absolute bottom-3 right-2 flex items-center mr-4 space-x-2">
-        <MdOutlineModeEditOutline
-          className="text-blue-500 cursor-pointer h-[18px]"
-          onClick={(id) => {
-            onEdit(id);
-          }}
-        />
-        <BsTrash
-          className="text-pink-500 cursor-pointer h-[18px]"
-          onClick={(id) => {
-            onDelete(id);
-          }}
-        />
-      </div>
+      {onEdit && onDelete && (
+        <div className=" absolute bottom-3 right-2 flex items-center mr-4 space-x-2">
+          <MdOutlineModeEditOutline
+            className="text-blue-500 cursor-pointer h-[18px]"
+            onClick={(id) => {
+              onEdit(id);
+            }}
+          />
+          <BsTrash
+            className="text-pink-500 cursor-pointer h-[18px]"
+            onClick={(id) => {
+              onDelete(id);
+            }}
+          />
+        </div>
+      )}
     </li>
   );
 }
