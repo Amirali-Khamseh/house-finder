@@ -79,7 +79,7 @@ export default function Category() {
     }
   }
   return (
-    <div className="max-w-6xl mx-auto h-screen">
+    <div className="max-w-6xl mx-auto h-full">
       <div
         className="my-4 before:border-t flex before:flex-1
      after:border-t  after:flex-1 items-center"

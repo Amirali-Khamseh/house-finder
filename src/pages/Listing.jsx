@@ -50,7 +50,7 @@ export default function Listing() {
     return <Spinner />;
   }
   return (
-    <main className="w-[80%] max-w-6xl mx-auto px-2 h-screen">
+    <main className="w-[80%] max-w-6xl mx-auto px-2 h-full">
       <Headline title="Details page" />
       <Swiper
         className="w-full rounded-xl md:w-[100%] "
