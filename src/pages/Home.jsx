@@ -19,6 +19,7 @@ import Headline from "../components/Headline";
 export default function Home() {
   const [offerListings, setOfferListings] = useState(null);
   const [rentListings, setRentListings] = useState(null);
+  const [loading, setLoading] = useState(true);
   //Fetching Discounted Properties
   useEffect(() => {
     async function fetchListings() {
@@ -104,10 +105,17 @@ export default function Home() {
     }
     fetchListings();
   }, []);
+  setTimeout(() => {
+    setLoading(false);
+  }, 1500);
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <main className="h-full w-full">
       <VideoHeroSection />
+
       <div className="max-w-6xl mx-auto pt-4 space-y-6">
         {/*Discounted properties */}
 

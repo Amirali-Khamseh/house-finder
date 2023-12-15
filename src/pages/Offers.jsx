@@ -77,7 +77,7 @@ export default function Offers() {
     }
   }
   return (
-    <div className="max-w-6xl mx-auto h-screen">
+    <div className="max-w-6xl mx-auto h-full">
       {listings.length > 0 && <Headline title="Discounted properties" />}
 
       {loading ? (

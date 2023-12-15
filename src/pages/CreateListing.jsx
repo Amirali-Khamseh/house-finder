@@ -86,6 +86,13 @@ function CreateListing() {
   };
   //Uploading Images and generating their URLs
   async function storeImage(image) {
+    const maxFileSize = 2 * 1024 * 1024; // 2MB in bytes
+
+    if (image.size > maxFileSize) {
+      toast.error(`File size exceeds 2MB limit: ${image.name}`);
+      setLoading(false);
+      return;
+    }
     return new Promise((resolve, reject) => {
       const storage = getStorage();
       const filename = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;

@@ -53,7 +53,7 @@ export default function Listing() {
     <main className="w-[80%] max-w-6xl mx-auto px-2 h-screen">
       <Headline title="Details page" />
       <Swiper
-        className="w-full rounded-xl md:w-[50%] "
+        className="w-full rounded-xl md:w-[100%] "
         slidesPerView={1}
         navigation
         pagination={{ type: "progressbar" }}
@@ -66,7 +66,7 @@ export default function Listing() {
             <div
               className="relative w-full overflow-hidden h-[300px]"
               style={{
-                background: `url(${listing.imgUrls[index]}) center no-repeat`,
+                background: `url(${url}) center no-repeat`,
                 backgroundSize: "cover",
               }}
             ></div>
@@ -74,7 +74,7 @@ export default function Listing() {
         ))}
       </Swiper>
       <div
-        className="cursor-pointer  bg-white text-black w-[35px] flex justify-center items-center h-[35px] p-2 rounded-[50%] border-gray-700 border-2 absolute top-[45%] right-[13%]  md:right-[32%] z-40 xl:top-[42%] xl:right-[36%]"
+        className="cursor-pointer  bg-white text-black w-[35px] flex justify-center items-center h-[35px] p-2 rounded-[50%] border-gray-700 border-2 absolute top-[45%] right-[13%]  md:right-[32%] z-40 xl:top-[44%] xl:right-[21%]"
         onClick={() => {
           navigator.clipboard.writeText(window.location.href);
           toast.success("Copied to clipboard");
