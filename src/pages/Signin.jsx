@@ -12,7 +12,7 @@ export default function Signin() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   return (
-    <section className="h-screen">
+    <section className="h-screen max-w-6xl mx-auto ">
       <div
         className="my-4 before:border-t flex before:flex-1
              after:border-t  after:flex-1 items-center"
@@ -95,22 +95,21 @@ export default function Signin() {
                 />
               )}
             </div>
-            <div className="mt-5 flex text-sm sm:text-base w-full  justify-between  items-center  md:justify-between md:flex-row ">
+            <div className="mt-5 flex text-sm sm:text-base w-full  justify-between  items-center  md:justify-between md:flex-row text-white">
               <p>
-                Need an account?{" "}
+                Need an account?
                 <Link
                   to="/sign-up"
                   className="text-xl text text-gray-100 hover:transition-all  hover:border-b-2"
                 >
-                  Sign-up
-                </Link>{" "}
+                  <span className="ml-1 hover:border-b"> Sign-up</span>
+                </Link>
               </p>
               <p>
                 <Link
                   to="/forgot-password"
-                  className=" hover:border-b-2 hover:transition-all"
+                  className=" hover:border-b-2 hover:transition-all text-white"
                 >
-                  {" "}
                   Forgotten your password ?
                 </Link>
               </p>
@@ -118,7 +117,7 @@ export default function Signin() {
             <div>
               <button
                 type="submit"
-                className="w-full bg-green-400 px-7 py-3 text-white mt-4 rounded-xl hover:bg-green-500 hover:scale-90 hover:transition-all ease-in-out duration-150"
+                className="w-full mt-2 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
                 Sign-in
               </button>
@@ -126,7 +125,7 @@ export default function Signin() {
                 className="my-4 before:border-t flex before:flex-1
              after:border-t  after:flex-1 items-center"
               >
-                <p className="text-center font-semibold mx-2">Or</p>
+                <p className="text-center font-semibold mx-2 text-white">Or</p>
               </div>
               <OAuth />
             </div>

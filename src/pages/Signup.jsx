@@ -10,6 +10,7 @@ import { db } from "../firebase";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Headline from "../components/Headline";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -21,15 +22,8 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <section className="h-screen ">
-      <div
-        className="my-4 before:border-t flex before:flex-1
-             after:border-t  after:flex-1 items-center"
-      >
-        <h2 className="text-center text-xl font-semibold mx-2 text-white">
-          Create an account
-        </h2>
-      </div>
+    <section className="h-screen max-w-6xl mx-auto  ">
+      <Headline title="Create an account" />
       <div className="flex justify-center flex-wrap items-center px-5 py-12  max-w-6xl mx-auto">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6 ">
           <img
@@ -137,7 +131,7 @@ export default function Signup() {
             <div>
               <button
                 type="submit"
-                className="w-full bg-blue-600 px-7 py-3 text-white mt-4 rounded-xl hover:bg-blue-400 hover:scale-90 hover:transition-all ease-in-out duration-150"
+                className="w-full mt-4 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
                 Sign-up
               </button>

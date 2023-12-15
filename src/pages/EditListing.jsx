@@ -209,17 +209,15 @@ function EditListing() {
         </h2>
       </div>
       <form className="text-center" onSubmit={onSubmit}>
-        <p className="md:text-xl font-bold text-gray-700 text-white">
-          Sell or Rent
-        </p>
+        <p className="md:text-xl font-bold  text-white">Sell or Rent</p>
         <div className="flex justify-center">
           <button
             type="button"
             id="type"
             value="sell"
             className={`${
-              formData.type === "sell" && "bg-gray-700  text-white"
-            }  border-2 p-2 m-2 rounded-xl w-[33%] `}
+              formData.type === "sell" && "bg-gray-700  "
+            } text-white  border-2 p-2 m-2 rounded-xl w-[33%] `}
             onClick={onChange}
           >
             Sell
@@ -230,8 +228,8 @@ function EditListing() {
             id="type"
             value="rent"
             className={`${
-              formData.type === "rent" && "bg-gray-700  text-white "
-            }  border-2 p-2 m-2 rounded-xl w-[33%]`}
+              formData.type === "rent" && "bg-gray-700 "
+            }  text-white border-2 p-2 m-2 rounded-xl w-[33%]`}
             onClick={onChange}
           >
             Rent
@@ -283,8 +281,8 @@ function EditListing() {
             value={true}
             type="button"
             className={`${
-              formData.parking && "bg-gray-700  text-white"
-            }  border-2 p-2 m-2 rounded-xl w-[33%] `}
+              formData.parking && "bg-gray-700 "
+            }  text-white border-2 p-2 m-2 rounded-xl w-[33%] `}
             onClick={onChange}
           >
             Yes
@@ -295,8 +293,8 @@ function EditListing() {
             value={false}
             type="button"
             className={`${
-              !formData.parking && "bg-gray-700  text-white "
-            }  border-2 p-2 m-2 rounded-xl w-[33%]`}
+              !formData.parking && "bg-gray-700   "
+            }  text-white border-2 p-2 m-2 rounded-xl w-[33%]`}
             onClick={onChange}
           >
             No
@@ -309,8 +307,8 @@ function EditListing() {
             value={true}
             type="button"
             className={`${
-              formData.furnished && "bg-gray-700  text-white"
-            }  border-2 p-2 m-2 rounded-xl w-[33%] `}
+              formData.furnished && "bg-gray-700 "
+            }  text-white border-2 p-2 m-2 rounded-xl w-[33%] `}
             onClick={onChange}
           >
             Yes
@@ -321,8 +319,8 @@ function EditListing() {
             value={false}
             type="button"
             className={`${
-              !formData.furnished && "bg-gray-700  text-white "
-            }  border-2 p-2 m-2 rounded-xl w-[33%]`}
+              !formData.furnished && "bg-gray-700  "
+            }  text-white border-2 p-2 m-2 rounded-xl w-[33%]`}
             onClick={onChange}
           >
             No
@@ -386,8 +384,8 @@ function EditListing() {
             type="button"
             id="offer"
             className={`${
-              formData.offer && "bg-gray-700  text-white"
-            }  border-2 p-2 m-2 rounded-xl w-[33%] transition ease-out `}
+              formData.offer && "bg-gray-700  "
+            }  text-white border-2 p-2 m-2 rounded-xl w-[33%] transition ease-out `}
             value={true}
             onClick={onChange}
           >
@@ -398,8 +396,8 @@ function EditListing() {
             type="button"
             id="offer"
             className={`${
-              !formData.offer && "bg-gray-700  text-white "
-            }  border-2 p-2 m-2 rounded-xl w-[33%]`}
+              !formData.offer && "bg-gray-700  "
+            }  text-white border-2 p-2 m-2 rounded-xl w-[33%]`}
             onClick={onChange}
             value={false}
           >

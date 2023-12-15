@@ -15,7 +15,7 @@ import ListingItem from "../components/ListingItem";
 import Headline from "../components/Headline";
 
 export default function Offers() {
-  const [listings, setListings] = useState(null);
+  const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [lastFetchedListing, setLastFetchListing] = useState(null);
   //Getting last 8 Offers
@@ -78,7 +78,8 @@ export default function Offers() {
   }
   return (
     <div className="max-w-6xl mx-auto h-screen">
-      <Headline title="Discounted properties" />
+      {listings.length > 0 && <Headline title="Discounted properties" />}
+
       {loading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (

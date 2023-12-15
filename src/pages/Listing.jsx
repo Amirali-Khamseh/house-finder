@@ -25,6 +25,7 @@ import "swiper/css/bundle";
 import { getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
 import Contact from "../components/Contact";
+import Headline from "../components/Headline";
 
 export default function Listing() {
   const params = useParams();
@@ -49,15 +50,8 @@ export default function Listing() {
     return <Spinner />;
   }
   return (
-    <main className="w-[80%] max-w-6xl mx-auto px-2 ">
-      <div
-        className="my-4 before:border-t flex before:flex-1
-             after:border-t  after:flex-1 items-center"
-      >
-        <h2 className="text-center text-xl font-semibold mx-2 text-white">
-          Details Page
-        </h2>
-      </div>
+    <main className="w-[80%] max-w-6xl mx-auto px-2 h-screen">
+      <Headline title="Details page" />
       <Swiper
         className="w-full rounded-xl md:w-[50%] "
         slidesPerView={1}
@@ -80,7 +74,7 @@ export default function Listing() {
         ))}
       </Swiper>
       <div
-        className="cursor-pointer  bg-white text-black w-[35px] flex justify-center items-center h-[35px] p-2 rounded-[50%] border-gray-700 border-2 absolute top-[55%] right-[13%]  md:right-[32%] z-40"
+        className="cursor-pointer  bg-white text-black w-[35px] flex justify-center items-center h-[35px] p-2 rounded-[50%] border-gray-700 border-2 absolute top-[45%] right-[13%]  md:right-[32%] z-40 xl:top-[42%] xl:right-[36%]"
         onClick={() => {
           navigator.clipboard.writeText(window.location.href);
           toast.success("Copied to clipboard");
@@ -113,11 +107,11 @@ export default function Listing() {
             {listing.address}
           </p>
           <div className="flex justify-start items-center space-x-4 w-[75%]">
-            <p className="bg-red-800 w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
-              {listing.type === "rent" ? "Rent" : "Sale"}
+            <p className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ">
+              {listing.type === "rent" ? "Rent" : "Sell"}
             </p>
             {listing.offer && (
-              <p className="w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md">
+              <p className="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
                 ${+listing.regularPrice - +listing.discountedPrice} discount
               </p>
             )}

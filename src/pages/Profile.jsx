@@ -81,7 +81,7 @@ export default function Profile() {
     navigate(`/edit-listing/${id}`);
   }
   return (
-    <div className="h-screen">
+    <div className="h-full">
       <section className="max-w-6xl mx-auto">
         <div
           className="my-4 before:border-t flex before:flex-1
