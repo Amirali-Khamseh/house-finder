@@ -41,7 +41,7 @@ export default function Signin() {
                   formData.password
                 );
                 if (userCredentials.user) {
-                  navigate("/");
+                  navigate("/profile");
                 }
               } catch (e) {
                 toast.error("User credentials are incoreect");
@@ -95,41 +95,35 @@ export default function Signin() {
                 />
               )}
             </div>
-            <div className="mt-5 flex text-sm sm:text-base w-full  justify-between  items-center  md:justify-between md:flex-row text-white">
+            <div className="mt-5 flex flex-col md:flex-row w-full  justify-between  items-center  md:justify-between  text-white">
               <p>
                 Need an account?
                 <Link
                   to="/sign-up"
-                  className="text-xl text text-gray-100 hover:transition-all  hover:border-b-2"
+                  className="text-xm text text-gray-100 hover:transition-all  hover:border-b-2"
                 >
-                  <span className="ml-1 hover:border-b"> Sign-up</span>
+                  <span className="ml-1 hover:border-b text-sm">Sign-up</span>
                 </Link>
               </p>
               <p>
                 <Link
                   to="/forgot-password"
-                  className=" hover:border-b-2 hover:transition-all text-white"
+                  className=" hover:border-b-2 hover:transition-all text-white text-sm"
                 >
                   Forgotten your password ?
                 </Link>
               </p>
             </div>
-            <div className="w-full">
+            <div className="w-full flex flex-col justify-center items-center mt-4">
               <button
                 type="submit"
-                className="w-[195px] ml-[7.5rem] mt-2 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                className="w-[200px] ml-1 mt-2 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
                 Sign-in
               </button>
-              <div
-                className="my-4 before:border-t flex before:flex-1
-             after:border-t  after:flex-1 items-center"
-              >
-                <p className="text-center font-semibold mx-2 text-white">Or</p>
-              </div>
-              <OAuth />
             </div>
           </form>
+          <OAuth />
         </div>
       </div>
     </section>

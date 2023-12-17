@@ -128,22 +128,16 @@ export default function Signup() {
               )}
             </div>
 
-            <div>
+            <div className="w-full flex flex-col justify-center items-center mt-4">
               <button
                 type="submit"
-                className="w-[195px] ml-[7.5rem] mt-4 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                className="w-[200px] ml-1 mt-4 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
                 Register
               </button>
-              <div
-                className="my-4 before:border-t flex before:flex-1
-             after:border-t  after:flex-1 items-center"
-              >
-                <p className="text-center font-semibold mx-2">Or</p>
-              </div>
-              <OAuth />
             </div>
           </form>
+          <OAuth />
         </div>
       </div>
     </section>

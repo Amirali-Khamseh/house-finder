@@ -73,21 +73,24 @@ export default function Listing() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div
-        className="cursor-pointer  bg-white text-black w-[35px] flex justify-center items-center h-[35px] p-2 rounded-[50%] border-gray-700 border-2 absolute top-[45%] right-[13%]  md:right-[32%] z-40 xl:top-[44%] xl:right-[21%]"
-        onClick={() => {
-          navigator.clipboard.writeText(window.location.href);
-          toast.success("Copied to clipboard");
-        }}
-      >
-        <MdContentCopy className="text-xl" />
-      </div>
 
       <div className="m-4 flex flex-col md:flex-row max-w-6xl mx-auto p-4 rounded-lg shadow-lg bg-white lg:space-x-5 w-full">
         <div className=" w-full lg-[400px] ">
-          <p className="text-2xl font-bold mb-3 text-blue-900">
-            {listing.name}
-          </p>
+          <div className="flex justify-between items-center md:justify-start">
+            <p className="text-2xl font-bold mb-3 text-blue-900">
+              {listing.name}
+            </p>
+            <div
+              className="cursor-pointer  bg-white text-black border-2 border-black p-1  rounded-[50%] md:ml-3"
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+                toast.success("Copied to clipboard");
+              }}
+            >
+              <MdContentCopy className="text-xl" />
+            </div>
+          </div>
+
           <div className="flex items-center">
             <p className=" text-gray-700  bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2">
               {listing.offer
