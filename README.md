@@ -19,14 +19,8 @@ The use of Firebase in this project has significantly sped up the development pr
 ReactJS and Tailwind CSS combined make it possible to have an attractive design, implemented using a component-based architecture. One significant advantage of using ReactJS is the availability of external libraries built specifically for this library, such as React-Leaflet, React-Error-Boundary, React-Toast, React-Icons, and more.
 <br/>
 
-<div style="display: flex;
-            flex-direction: row; 
-            justify-content: center;
-            align-items: center; 
-            flex-wrap: wrap; 
-            gap: 20px; /* Add spacing between images */
-">
-  <img src="./public/img1.png" width="400" title="landing page" alt="landing page" style="object-fit: cover; border-radius: 8px;">
-  <img src="./public/img2.png" width="400" title="Creating an advertisement page" alt="Creating an advertisement page"  style="object-fit: cover; border-radius: 8px;">
-  <img src="./public/img3.png" width="400" title="Details page" alt="details"  style="object-fit: cover; border-radius: 8px;">
-</div>
+<p align="center">
+  <img src="./public/img1.png" width="400" title="landing page" alt="landing page" style="object-fit: cover; border-radius: 8px; margin: 10px;">
+  <img src="./public/img2.png" width="400" title="Creating an advertisement page" alt="Creating an advertisement page"  style="object-fit: cover; border-radius: 8px; margin: 10px;">
+  <img src="./public/img3.png" width="400" title="Details page" alt="details"  style="object-fit: cover; border-radius: 8px; margin: 10px;">
+</p>
