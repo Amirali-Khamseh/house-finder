@@ -20,13 +20,13 @@ ReactJS and Tailwind CSS combined make it possible to have an attractive design,
 <br/>
 
 <div style="display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center; 
-flex-wrap: nowrap; 
-width:100%;">
-  <img src="./public/img1.png" width="400" title="landing page" alt="landing page" style="object-fit:cover">
-  <img src="./public/img2.png" width="400" title="Creating an advertisement page" alt="Creating an advertisement page"  style="object-fit:cover">
-  <img src="./public/img3.png" width="400" title="Details page" alt="details"  style="object-fit:cover">
-
+            flex-direction: row; 
+            justify-content: center;
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 20px; /* Add spacing between images */
+">
+  <img src="./public/img1.png" width="400" title="landing page" alt="landing page" style="object-fit: cover; border-radius: 8px;">
+  <img src="./public/img2.png" width="400" title="Creating an advertisement page" alt="Creating an advertisement page"  style="object-fit: cover; border-radius: 8px;">
+  <img src="./public/img3.png" width="400" title="Details page" alt="details"  style="object-fit: cover; border-radius: 8px;">
 </div>
