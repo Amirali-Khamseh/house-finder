@@ -20,8 +20,8 @@ ReactJS and Tailwind CSS combined make it possible to have an attractive design,
 <br/>
 
 <p align="center">
-  <img src="/img1.png" width="350" title="landing page" alt="landing page" style="object-fit:cover">
-  <img src="/img2.png" width="350" title="Creating an advertisement page" alt="Creating an advertisement page"  style="object-fit:cover">
-  <img src="/img3.png" width="350" title="Details page" alt="details"  style="object-fit:cover">
+  <img src="./public/img1.png" width="350" title="landing page" alt="landing page" style="object-fit:cover">
+  <img src="./public/img2.png" width="350" title="Creating an advertisement page" alt="Creating an advertisement page"  style="object-fit:cover">
+  <img src="./public/img3.png" width="350" title="Details page" alt="details"  style="object-fit:cover">
 
 </p>
