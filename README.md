@@ -19,7 +19,7 @@ The use of Firebase in this project has significantly sped up the development pr
 ReactJS and Tailwind CSS combined make it possible to have an attractive design, implemented using a component-based architecture. One significant advantage of using ReactJS is the availability of external libraries built specifically for this library, such as React-Leaflet, React-Error-Boundary, React-Toast, React-Icons, and more.
 <br/>
 
-<div style="display:flex; flex-direction:column; justify-content:center; align-item:center; ">
+<div style="display:flex; flex-direction:column; justify-content:center; align-item:center; flex-wrap:nowrap; ">
   <img src="./public/img1.png" width="400" title="landing page" alt="landing page" style="object-fit:cover">
   <img src="./public/img2.png" width="400" title="Creating an advertisement page" alt="Creating an advertisement page"  style="object-fit:cover">
   <img src="./public/img3.png" width="400" title="Details page" alt="details"  style="object-fit:cover">
