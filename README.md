@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+**_Live demo : https://house-finder-pi.vercel.app/_**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# House finder
 
-## Available Scripts
+House Finder is a cloud-based application that enables individuals to publish their properties for sale or rent. To advertise your property, follow these simple steps:
 
-In the project directory, you can run:
+- Sign in via your Gmail account or email.
+- Navigate to the "Profile" section and select "Publish my offer."
+- Complete the form with your property's details, and use the map interface to specify the address of your house. Simply drag and drop the marker on the map to your desired location, and the address will be automatically generated.
 
-### `npm start`
+That's it! Your advertisement is now created, and users of the website can visit your property and send you a message via the dedicated interface on the website to get more information.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Technical objectives
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+House Finder is a full-stack advertising platform that utilizes Google Cloud's backend-as-a-service Firebase for authentication and primary database. For the front-end, it uses ReactJS as the frontend library and Tailwind CSS as the styling framework.
 
-### `npm test`
+The use of Firebase in this project has significantly sped up the development process, as it provides a complete and secure authentication system and a fast and reliable database. Additionally, since the project is backed up by Google's servers, it guarantees reliability, scalability, and fast data transfer that can serve customers from the nearest data center. This showcases the power of cloud services, particularly in the case of Firebase.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ReactJS and Tailwind CSS combined make it possible to have an attractive design, implemented using a component-based architecture. One significant advantage of using ReactJS is the availability of external libraries built specifically for this library, such as React-Leaflet, React-Error-Boundary, React-Toast, React-Icons, and more.
+<br/>
 
-### `npm run build`
+<p align="center">
+  <img src="/img1.png" width="350" title="landing page" alt="landing page" style="object-fit:cover">
+  <img src="/img2.png" width="350" title="Creating an advertisement page" alt="Creating an advertisement page"  style="object-fit:cover">
+  <img src="/img3.png" width="350" title="Details page" alt="details"  style="object-fit:cover">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</p>
