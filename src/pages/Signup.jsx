@@ -137,6 +137,7 @@ export default function Signup() {
               </button>
             </div>
           </form>
+          <Headline title="Or" />
           <OAuth />
         </div>
       </div>

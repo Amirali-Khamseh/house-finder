@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
+import Headline from "../components/Headline";
+import { or } from "firebase/firestore";
 export default function Signin() {
   const [formData, setFormData] = useState({
     email: "",
@@ -123,6 +125,7 @@ export default function Signin() {
               </button>
             </div>
           </form>
+          <Headline title="Or" />
           <OAuth />
         </div>
       </div>
